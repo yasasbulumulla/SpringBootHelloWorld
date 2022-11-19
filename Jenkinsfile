@@ -33,10 +33,10 @@ pipeline{
       }
      }
    
-   stage("Doker Image"){
+   stage("Doker Image Build"){
     steps{
      script{
-      sh 'docker build -t yasasbulumulla/spring-boot-test1.jar'
+      sh 'docker build -t yasasbulumulla/spring-boot-test1.jar .'
      
      }
     }
