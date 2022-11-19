@@ -47,8 +47,9 @@ pipeline{
       script{
       withCredentials([string(credentialsId: 'Docker_HUB_Credentials', variable: 'Docker_Hub_Cred')]) {
        sh 'docker login -u yasasbulumulla -p ${Docker_Hub_Cred}'
-       sh 'docker push yasasbulumulla/spring-boot-test1'
+       
        }
+       sh 'docker push yasasbulumulla/spring-boot-test1'
       }
      }
     }
