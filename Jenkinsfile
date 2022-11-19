@@ -41,7 +41,7 @@ pipeline{
      }
     }
     
-    Stage("Pust to Dokerhub"){
+    stage("Pust to Dokerhub"){
      steps{
       script{
       withCredentials([string(credentialsId: 'Docker_HUB_Credentials', variable: 'Docker_Hub_Cred')]) {
