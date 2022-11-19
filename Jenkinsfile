@@ -32,6 +32,15 @@ pipeline{
        echo "version ${params.VERSION}"
       }
      }
+   
+   stage("Doker Image"){
+    steps{
+     script{
+      sh 'docker build -t yasasbulumulla/spring-boot-test1.jar'
+     
+     }
+    }
+   }
   }
   
 }
