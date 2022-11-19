@@ -40,6 +40,7 @@ pipeline{
      
      }
     }
+   }
     
     stage("Pust to Dokerhub"){
      steps{
@@ -54,7 +55,7 @@ pipeline{
     
     
     
-   }
+   
   }
   
 }
