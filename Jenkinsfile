@@ -40,7 +40,7 @@ pipeline{
    stage("Doker Image Build"){
     steps{
      script{
-      sh 'docker build -t yasasbulumulla/spring-boot-test1:${DOCKER_TAG}'
+      sh "docker build -t yasasbulumulla/spring-boot-test1:${DOCKER_TAG}"
      
      }
     }
@@ -53,7 +53,7 @@ pipeline{
        sh 'docker login -u yasasbulumulla -p ${Docker_Hub_Cred}'
        
        }
-       sh 'docker push yasasbulumulla/spring-boot-test1:${DOCKER_TAG}'
+       sh "docker push yasasbulumulla/spring-boot-test1:${DOCKER_TAG}"
       }
      }
     }
