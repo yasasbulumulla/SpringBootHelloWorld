@@ -56,6 +56,7 @@ pipeline{
     
     stage('k8s push') {
      steps{
+       script{
      sshagent(['k8s-privatekey']) {
     
      sh "scp -o StrictHostKeyChecking=no HelloWorld.yaml root@192.168.56.112:/root"
@@ -67,6 +68,7 @@ pipeline{
             sh "ssh root@192.168.56.112 kubectl create -f deploymentservice.yaml"
         }
       }
+     }
      }
 }
     
