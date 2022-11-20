@@ -1,9 +1,13 @@
 pipeline{
  agent any
+     environment{
+        DOCKER_TAG = getDockerTag()
+
+    }
  tools{
  maven 'Maven-3.6.1'
  }
-
+ 
  parameters {
   choice choices: ['1.1.0', '1.2.0', '1.3.0'], name: 'VERSION'
   booleanParam defaultValue: true, name: 'executeTest'
@@ -49,7 +53,7 @@ pipeline{
        sh 'docker login -u yasasbulumulla -p ${Docker_Hub_Cred}'
        
        }
-       sh 'docker push yasasbulumulla/spring-boot-test1'
+       sh 'docker push yasasbulumulla/spring-boot-test1:${DOCKER_TAG}'
       }
      }
     }
