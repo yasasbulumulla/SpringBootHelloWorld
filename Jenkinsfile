@@ -61,11 +61,11 @@ pipeline{
     
      sh "scp -o StrictHostKeyChecking=no HelloWorld.yaml root@192.168.56.112:/root"
     try{
-        sh "ssh root@192.168.56.112 kubectl apply -f deploymentservice.yaml"
+        sh "ssh root@192.168.56.112 kubectl apply -f HelloWorld.yaml"
 
         }catch(error)
             {
-            sh "ssh root@192.168.56.112 kubectl create -f deploymentservice.yaml"
+            sh "ssh root@192.168.56.112 kubectl create -f HelloWorld.yaml"
         }
       }
      }
