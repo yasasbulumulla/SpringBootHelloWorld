@@ -37,7 +37,7 @@ pipeline{
    stage("Doker Image Build"){
     steps{
      script{
-      sh "docker build -t yasasbulumulla/spring-boot-test1:${env.BUILD_NUMBER}"
+      sh 'docker build -t yasasbulumulla/spring-boot-test1:$BUILD_NUMBER .'
      
      }
     }
@@ -50,7 +50,7 @@ pipeline{
        sh 'docker login -u yasasbulumulla -p ${Docker_Hub_Cred}'
        
        }
-       sh "docker push yasasbulumulla/spring-boot-test1:${env.BUILD_NUMBER}"
+       sh 'docker push yasasbulumulla/spring-boot-test1:$BUILD_NUMBER'
       }
      }
     }
