@@ -60,7 +60,7 @@ pipeline{
        script{
      sshagent(['k8s-privatekey']) {
     
-      sh "chmod -+ changeTag.sh"
+      sh "chmod 777 changeTag.sh"
       sh "./changeTag.sh $BUILD_NUMBER"
      sh "scp -o StrictHostKeyChecking=no node-app-pod.yml root@192.168.56.112:/root"
     try{
