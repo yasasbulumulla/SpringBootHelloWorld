@@ -60,13 +60,15 @@ pipeline{
        script{
      sshagent(['k8s-privatekey']) {
     
-     sh "scp -o StrictHostKeyChecking=no HelloWorld.yaml root@192.168.56.112:/root"
+      sh "chmod -+ changeTag.sh"
+      sh "./changeTag.sh $BUILD_NUMBER"
+     sh "scp -o StrictHostKeyChecking=no node-app-pod.yml root@192.168.56.112:/root"
     try{
-        sh "ssh root@192.168.56.112 kubectl apply -f HelloWorld.yaml"
+        sh "ssh root@192.168.56.112 kubectl apply -f node-app-pod.yml"
 
         }catch(error)
             {
-            sh "ssh root@192.168.56.112 kubectl create -f HelloWorld.yaml"
+            sh "ssh root@192.168.56.112 kubectl create -f node-app-pod.yml"
         }
       }
      }
