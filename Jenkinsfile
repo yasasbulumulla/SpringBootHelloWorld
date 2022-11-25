@@ -63,6 +63,7 @@ pipeline{
       sh "chmod 777 changeTag.sh"
       sh "./changeTag.sh $BUILD_NUMBER"
      sh "scp -o StrictHostKeyChecking=no node-app-pod.yml root@192.168.56.112:/root"
+     sh "scp -o StrictHostKeyChecking=no Ingress.yaml root@192.168.56.112:/root"
     try{
         sh "ssh root@192.168.56.112 kubectl apply -f node-app-pod.yml"
 
